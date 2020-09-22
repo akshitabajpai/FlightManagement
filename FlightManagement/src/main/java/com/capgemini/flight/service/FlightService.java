@@ -36,16 +36,16 @@ public class FlightService {
 		return flightDao.findAll();
 	}
 	
-//	public Optional<Flight> flightdetails(Integer flightNumber)
-//	{
-//		return flightDao.findById(flightNumber);
-//	}
-//	
-//public boolean updateflight(Flight flight,Integer flightNumber)
-//	
-//	{
-//		flight.setFlightModel(flight.getFlightModel());
-//		return flightDao.save(flight) !=null;
-//	}
+	public Optional<Flight> flightdetails(Integer flightNumber)
+	{
+		return flightDao.findById(flightNumber);
+	}
+	
+public boolean updateflight(Flight flight,Integer flightNumber)
+	
+	{
+		flight.setFlightModel(flight.getFlightModel());
+		return flightDao.save(flight) !=null;
+	}
 
 }
