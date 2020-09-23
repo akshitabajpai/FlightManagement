@@ -31,17 +31,13 @@ public class FlightService {
 		
 	}
 	
-	public List<Flight> show()
+	public List<Flight> viewflights()
 	{
 		return flightDao.findAll();
 	}
+
 	
-	public Optional<Flight> flightdetails(Integer flightNumber)
-	{
-		return flightDao.findById(flightNumber);
-	}
-	
-public boolean updateflight(Flight flight,Integer flightNumber)
+    public boolean updateflight(Flight flight,Integer flightNumber)
 	
 	{
 		flight.setFlightModel(flight.getFlightModel());
