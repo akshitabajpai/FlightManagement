@@ -19,24 +19,26 @@ public class FlightService {
 	@Autowired
 	private Flightdao flightDao;
 	
-//	@Transactional
+	@Transactional
 	public boolean addflight(Flight flight)
 	{
 		return flightDao.save(flight) !=null;
 	}
 	
+	@Transactional
 	public void deleteflight(Integer flightNumber)
 	{
 		flightDao.deleteById(flightNumber);
 		
 	}
 	
+	@Transactional
 	public List<Flight> viewflights()
 	{
 		return flightDao.findAll();
 	}
 
-	
+	@Transactional
     public boolean updateflight(Flight flight,Integer flightNumber)
 	
 	{

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.flight.entity.Flight;
 import com.capgemini.flight.exception.FlightException;
@@ -24,14 +25,15 @@ import com.capgemini.flight.service.FlightService;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@CrossOrigin(origins="http://localhost:4200")
+@RestController
 
 public class FlightController {
 	
 	@Autowired
 	private FlightService flightservice;
 	
-	@CrossOrigin
+	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/addflight")
 	public ResponseEntity<String> addFlight(@Valid @RequestBody Flight flight, BindingResult br)
 			throws FlightException {
@@ -51,8 +53,9 @@ public class FlightController {
 		}
 	}
 	
-	@CrossOrigin
+
 	@DeleteMapping("/deleteflight/{flightNumber}")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<String> deleteflight( @PathVariable Integer flightNumber) throws FlightException
 	{
 		try
@@ -66,13 +69,15 @@ public class FlightController {
 	}
 	
 	@GetMapping("/viewallflight")
-	public ResponseEntity<List<Flight>> show() {
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<Flight>> getFlightlist() {
 		List<Flight> flightList = flightservice.viewflights();
 		return new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
 	}
 	
 	
 	@PutMapping("/updateflight/{flightNumber}")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<String> updateflight(@Valid @RequestBody Flight flight,@PathVariable Integer flightNumber,BindingResult br ) throws FlightException
 	{
 		String err = "";

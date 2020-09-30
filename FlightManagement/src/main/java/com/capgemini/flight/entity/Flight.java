@@ -37,7 +37,7 @@ public class Flight {
 
 	@NotNull(message="Seat Capacity Is Mandatory")
 	@Min(value=0)
-	@Max(value=200)
+	@Max(value=500)
 	@Column(name="seat_capacity")
 	private Integer seatCapacity;
 
